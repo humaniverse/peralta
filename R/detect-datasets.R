@@ -1,4 +1,4 @@
-href_links <- function(url) {
+detect_datasets <- function(url) {
   links <- scrape_politely(url) |>
     rvest::html_elements("a") |>
     rvest::html_attr("href") |>
