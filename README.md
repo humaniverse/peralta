@@ -9,8 +9,9 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 ## Overview
 
-Peralta is an R package to *detect* changes in web page source code. It is a
-work in progress.
+peralta is an R package to *detect* if new datasets have been published to a web
+page. It does this by scanning the source code of specified web pages for
+changes in `href` attributes and comparing these with a cache.
 
 ## Installation
 
