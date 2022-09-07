@@ -1,0 +1,12 @@
+Package: peralta
+Title: Detect changes in web pages
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Mike", "Page", email = "mpage@redcross.org.uk", role = "cre"),
+    person(family = "British Red Cross", role = "cph")
+    )
+Description: Scans the source code of web pages to detect changes and updates.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
