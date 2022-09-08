@@ -18,6 +18,6 @@
 # Over time, it would be good to add other means for storing a log, other than
 # using the local disk. E.g., can AWS/SharePoint/etc. be used. And can they can
 # be automated/called on a schedule.
-detective <- function() {
+detect <- function(path, ) {
 
 }
