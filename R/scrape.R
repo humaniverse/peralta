@@ -1,4 +1,4 @@
-scrape_politely <- function(url) {
+scrape <- function(url) {
   if (!is.character(url)) {
     stop("url must be a string.")
   }
