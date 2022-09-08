@@ -1,4 +1,4 @@
-extract_data <- function(url) {
+extract <- function(url) {
   links <- scrape(url) |>
     rvest::html_elements("a") |>
     rvest::html_attr("href") |>
