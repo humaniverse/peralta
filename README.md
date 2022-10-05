@@ -33,6 +33,13 @@ changes.
 > Conduct. By participating in this project you agree to abide by its
 > terms.
 
+## Alternatives
+
+Python:
+- [urlwatch](https://github.com/thp/urlwatch)
+- [kibitze](https://github.com/kibitzr/kibitzr)
+- [watchme](https://github.com/vsoch/watchme)
+
 ## Credits
 
 Developed by [Mike Page](https://github.com/MikeJohnPage) at the British Red 
