@@ -10,7 +10,7 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 peralta is an R package to detect if new datasets have been published to a web
 page. Define a list of *suspects* (URL's) you would like to track and then 
-`peralta` informs you if there have been any updates. Don't let the data get
+*peralta* informs you if there have been any updates. Don't let the data get
 away!
 
 ## Installation
