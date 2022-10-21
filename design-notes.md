@@ -22,7 +22,7 @@ Everytime you call on him, he `investigates` the suspects, and stores any
 dataframe object so they are easily editable. Each time an investigation is run
 (e.g., data is scraped), a new row should be appended to the dataframe object.
 This row should contain a timestamp, the list of files, and a diff showing the
-difference from the previous day. There is no need to delete previous records
+difference from the previous run. There is no need to delete previous records
 each time an investigation is run. The dataframe will be very small in size, and
 short of being run millions of times, will not be a storage issue. If the diff
 shows there has been no updates, then it should print this to the user, else it
@@ -31,6 +31,10 @@ accessed via the .rds object if required (perhaps a function can be written
 such as `load_evidence()`, but it doesn't seem necessary?). How should all
 the different updates to each url be handled? It could be a separate row per
 website, with a URL column identifier. Could it instead be a nested dataframe?
+Sould a function be written that allows you to print the latest known updates
+in case you forget to copy the output? What happens if you run the function
+twice on the trot? Does it execute twice with a unieque timestamp (by second)
+or does it tell you that you have already run the function (the fromer!).
 
 3. The list of urls should be easily editable / human friendly. No command line
 interfaces or terminal editors necessary. .csv file? .rds file + dplyr? The 
