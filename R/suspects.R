@@ -1,37 +1,50 @@
-#' Generate a list of suspects
-suspects_create <- function(suspects = NULL) {
-  # Check args
+#' Add suspects to the list
+suspects_add <- function(suspects = NULL) {
+  stopifnot("At least one suspect must be added to the list" = length(suspects) >= 1)
   stopifnot("`suspects` must be a character." = is.character(suspects))
   stopifnot("`suspects` must be of type vector." = is.vector(suspects))
 
-  # Only one list of suspects is allowed per project, recursively check for
-  # lists in project
-  if(file.exists("suspects.rds")){
-    stop("
-    A list of suspects already exists in this working directory.
-    Each project can only have one list.")
+  if (file.exists("suspects.rds")) {
+    suspect_list <- readRDS("suspects.rds")
+  } else {
+    suspect_list <- tibble::tibble(suspect = character())
   }
 
-  # Create suspects list
-  if(is.null(suspects)){
-    suspect_list <- tibble::tibble(suspects = character()) 
-  } else {
-    suspect_list <- tibble::tibble(suspects = suspects)
-  }
+  suspect_list_new <- tibble::tibble(suspect = suspects)
+
+  suspect_list <- dplyr::bind_rows(
+    suspect_list,
+    suspect_list_new
+  ) |>
+    dplyr::distinct()
 
   saveRDS(suspect_list, file = "suspects.rds")
 }
 
-suspects_add <- function(suspects, suspects_new){
+#' Remove suspects from the list
+suspects_remove <- function(suspects) {
+  stopifnot("At least one suspect must be added to the list" = length(suspects) >= 1)
+  stopifnot("`suspects` must be a character." = is.character(suspects))
+  stopifnot("`suspects` must be of type vector." = is.vector(suspects))
 
+  if (!file.exists("suspects.rds")) {
+    stop("A suspect list does not yet exist. Add suspects using `suspects_add()`")
+  }
+
+  suspect_list <- readRDS("suspects.rds")
+
+  if (length(suspect_list$suspect) == 0) {
+    stop("The suspect list is already empty!")
+  }
+
+  suspect_list <- suspect_list |>
+    dplyr::filter(!(suspect %in% suspects))
+
+  saveRDS(suspect_list, file = "suspects.rds")
 }
 
-suspects_remove <- function(suspects, suspects_old) {
-
+# Print the suspect list
+suspects <- function(n = "Inf") {
+  suspect_list <- readRDS("suspects.rds")
+  print(suspect_list, n = n)
 }
-
-suspects_view <- function(suspects, n) {
-  print(suspects, n = n)
-}
-
-rbind(suspect_list, suspects = c("hello"))
