@@ -1,3 +1,3 @@
-function <- peralta() {
+peralta <- function() {
   # Investigate the suspects
 }
