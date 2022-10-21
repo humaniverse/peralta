@@ -41,13 +41,12 @@ interfaces or terminal editors necessary. .csv file? .rds file + dplyr? The
 list of suspects (URL's) should be kept separate from the evidence dataframe.
 
 ## Implementation
-1. Download the peralta R package
-2. Create a new R project/dir (all files are stored relative to this project,
-   not relative to root/home directories). This means the website tracking can
-   be ported between colleagues/machines, with history kept in git.
-3. Create a list of suspects (URL's)
-4. Run peralta()
-5. Re-run peralta() as required.
+Create a new R project/dir (all files are stored relative to this project,
+not relative to root/home directories). This means the website tracking can
+be ported between colleagues/machines, with history kept in git.
+
+1. Create a list of suspects (URL's)
+2. Run peralta() as required!
 
 ## Ideas
 1. Store list of files to pass into regex separately. Write some code (e.g.,
