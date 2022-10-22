@@ -43,7 +43,7 @@ suspects_remove <- function(suspects) {
   saveRDS(suspect_list, file = "suspects.rds")
 }
 
-# Print the suspect list
+#' Print the suspect list
 suspects <- function(n = "Inf") {
   suspect_list <- readRDS("suspects.rds")
   print(suspect_list, n = n)
