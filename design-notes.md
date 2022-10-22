@@ -12,9 +12,9 @@ Everytime you call on him, he `investigates` the suspects, and stores any
 
 ## Principles
 1. Users should be exposed to two (groups of) functions:
- - one to add/delete/view urls from a list
+ - one to add/delete/view urls from a list - Done.
  - one to detect if there have been any updated datasets from their urls list.
-   The output of this should be in a format that can be piped into over R code
+   The output of this should be in a format that can be piped into other R code
    (e.g., .rds file).
 
 2. Records of datasets should be stored locally on disc. The file should be a
@@ -36,10 +36,6 @@ in case you forget to copy the output? What happens if you run the function
 twice on the trot? Does it execute twice with a unieque timestamp (by second)
 or does it tell you that you have already run the function (the fromer!).
 
-3. The list of urls should be easily editable / human friendly. No command line
-interfaces or terminal editors necessary. .csv file? .rds file + dplyr? The 
-list of suspects (URL's) should be kept separate from the evidence dataframe.
-
 ## Implementation
 Create a new R project/dir (all files are stored relative to this project,
 not relative to root/home directories). This means the website tracking can
@@ -47,7 +43,3 @@ be ported between colleagues/machines, with history kept in git.
 
 1. Create a list of suspects (URL's)
 2. Run peralta() as required!
-
-## Ideas
-1. Store list of files to pass into regex separately. Write some code (e.g.,
-using `paste()` or glue) that programmatically generates the correct regex.
