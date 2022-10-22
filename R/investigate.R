@@ -1,7 +1,5 @@
 scrape <- function(url) {
-  if (!is.character(url)) {
-    stop("url must be a string.")
-  }
+  stopifnot("`url` must be a string." = is.character(url))
 
   html <-
     polite::bow(url) |>
