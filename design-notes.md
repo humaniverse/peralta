@@ -43,3 +43,17 @@ be ported between colleagues/machines, with history kept in git.
 
 1. Create a list of suspects (URL's)
 2. Run peralta() as required!
+
+## Improvements:
+
+- Remove dependencies. Does this include polite? Would it not be better to rely
+  just on httr2/rvest (or just rvest), and manage rate limiting / robots.txt
+  manually
+- Add optional file path for suspects and evidence
+
+## For the README
+
+- infographics like mortyr
+- Why place suspects and evidence in the home dir? Peralta is messy and throws
+  stuff in a place easy to find. You can be more organised if you want (supply
+  file path)
