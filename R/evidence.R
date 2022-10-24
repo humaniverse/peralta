@@ -1,3 +1,5 @@
-evidence <- function() {
-  # Create an evidence locker which tracks changes in the suspects
+#' Print the evidence
+evidence <- function(n = 20) {
+  evidence <- readRDS("evidence.rds")
+  print(evidence, n = n)
 }
