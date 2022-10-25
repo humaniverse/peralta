@@ -27,11 +27,18 @@ suspects_remove <- function(suspects) {
   stopifnot("`suspects` must be a character." = is.character(suspects))
   stopifnot("`suspects` must be of type vector." = is.vector(suspects))
 
-  if (!file.exists("suspects.rds")) {
-    stop("A suspect list does not yet exist. Add suspects using `suspects_add()`")
+  if (file.exists("suspects.rds")) {
+    suspect_list <- readRDS("suspects.rds")
+  } else {
+    stop(
+      cli::format_error(
+        c(
+          "A list of suspects could not be found",
+          "i" = "Add suspects with `suspects_add()`."
+        )
+      )
+    )
   }
-
-  suspect_list <- readRDS("suspects.rds")
 
   if (length(suspect_list$suspect) == 0) {
     stop("The suspect list is already empty!")
