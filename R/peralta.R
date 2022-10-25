@@ -2,7 +2,14 @@ peralta <- function() {
   if (file.exists("suspects.rds")) {
     suspect_list <- readRDS("suspects.rds")
   } else {
-    stop("A list of suspects could not be found. Add suspects with `suspects_add()`.")
+    stop(
+      cli::format_error(
+        c(
+          "A list of suspects could not be found",
+          "i" = "Add suspects with `suspects_add()`."
+        )
+      )
+    )
   }
 
   evidence_new <- suspect_list |>
@@ -24,8 +31,6 @@ peralta <- function() {
       ) |>
       dplyr::pull(evidence)
 
-    print(paste0("Data added: ", evidence_added))
-
     evidence_removed <-
       dplyr::anti_join(
         evidence_last,
@@ -34,7 +39,7 @@ peralta <- function() {
       ) |>
       dplyr::pull(evidence)
 
-    print(paste0("Data removed: ", evidence_removed))
+    report_generate(evidence_added, evidence_removed, evidence_last)
 
     dplyr::bind_rows(evidence, evidence_new) |>
       saveRDS("evidence.rds")
@@ -49,6 +54,14 @@ peralta <- function() {
     saveRDS(evidence_new, "evidence.rds")
   }
 }
+
+# ---- Test run 1 ----
+# suspects <- c(
+#   "suspect_1",
+#   "suspect_2"
+# )
+# suspects_add(suspects)
+# suspects()
 
 # investigate_fake <- function(url, status) {
 #   tibble::tribble(
@@ -75,6 +88,9 @@ peralta <- function() {
 # evidence()
 # peralta()
 
+# ---- Test run 2 ----
 # suspects_add("https://www.england.nhs.uk/statistics/statistical-work-areas/hospital-discharge-data/")
+# suspects()
 # peralta()
 # evidence()
+# peralta()
