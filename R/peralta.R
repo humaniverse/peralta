@@ -45,6 +45,7 @@ peralta <- function() {
         evidence_new$evidence
       )
     )
+
     saveRDS(evidence_new, "evidence.rds")
   }
 }
