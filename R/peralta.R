@@ -39,10 +39,12 @@ peralta <- function() {
     dplyr::bind_rows(evidence, evidence_new) |>
       saveRDS("evidence.rds")
   } else {
-    message("
-    This is the first time Peralta has investigated the suspects for evidence.
-    Run this function again to see if any new evidence has emerged.
-    ")
+    print(
+      paste0(
+        "This is the first time Peralta has investigated the suspects for evidence. He came across the following: ",
+        evidence_new$evidence
+      )
+    )
     saveRDS(evidence_new, "evidence.rds")
   }
 }
@@ -72,6 +74,6 @@ peralta <- function() {
 # evidence()
 # peralta()
 
-suspects_add("https://www.england.nhs.uk/statistics/statistical-work-areas/hospital-discharge-data/")
-peralta()
-evidence()
+# suspects_add("https://www.england.nhs.uk/statistics/statistical-work-areas/hospital-discharge-data/")
+# peralta()
+# evidence()
