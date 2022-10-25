@@ -10,7 +10,7 @@
   be ported between colleagues/machines, with history kept in git. 1. Create a 
   list of suspects (URL's), 2. Run peralta() as required!
 
-### peralta.R
+### peralta.R
 - replace `print()` statement the first time the report is run with `cli`
   alternative
 
