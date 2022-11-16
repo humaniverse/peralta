@@ -26,11 +26,24 @@ report_create <- function(evidence_added = NULL,
     )
     if (length(evidence_added) != 0) {
       cli::cli_h3("datasets added")
-      cli_ul(paste0("{.url ", evidence_added, "}"))
+      cli::cli_ul(paste0("{.url ", evidence_added, "}"))
     }
     if (length(evidence_removed != 0)) {
       cli::cli_h3("datasets removed")
-      cli_ul(paste0("{.url ", evidence_removed, "}"))
+      cli::cli_ul(paste0("{.url ", evidence_removed, "}"))
     }
+  })
+}
+
+report_create_first <- function(evidence_new = NULL) {
+  cli::cli({
+    cli::cli_h1("Peralata report")
+    cli::cli_text(
+      c(
+        "This is the first time Peralta has investigated the suspects. ",
+        "He came across the following evidence: "
+      )
+    )
+    cli::cli_ul(paste0("{.url ", evidence_new, "}"))
   })
 }

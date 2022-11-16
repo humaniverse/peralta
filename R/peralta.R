@@ -45,12 +45,9 @@ peralta <- function() {
     dplyr::bind_rows(evidence, evidence_new) |>
       saveRDS("evidence.rds")
   } else {
-    print(
-      paste0(
-        "This is the first time Peralta has investigated the suspects for evidence. He came across the following: ",
-        evidence_new$evidence
-      )
-    )
+
+    # R/report.R
+    report_create_first(evidence_new$evidence)
 
     saveRDS(evidence_new, "evidence.rds")
   }
