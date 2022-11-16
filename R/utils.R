@@ -4,3 +4,5 @@ url_check <- function(url) {
     x = url
   )
 }
+
+"%!in%" <- function(x, y) !("%in%"(x, y))
