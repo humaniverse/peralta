@@ -1,15 +1,5 @@
 ## To Do:
 
-### README (to add)
-- infographics like mortyr
-- why place suspects and evidence in the home dir? Peralta is messy and throws
-  stuff in a place easy to find. You can be more organised if you want (supply
-  file path)
-- Create a new R project/dir (all files are stored relative to this project,
-  not relative to root/home directories). This means the website tracking can
-  be ported between colleagues/machines, with history kept in git. 1. Create a 
-  list of suspects (URL's), 2. Run peralta() as required!
-
 ### evidence.R
 - find a method to store the `evidence_*` outputs into the evidence
   dataframe. That way, `report_last()` can recreate a report using the last
