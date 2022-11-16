@@ -24,10 +24,13 @@ suspects_add <- function(suspects = NULL) {
 
 #' Remove suspects from the list
 suspects_remove <- function(suspects) {
+
+  # Check args
   stopifnot("At least one suspect must be added to the list" = length(suspects) >= 1)
   stopifnot("`suspects` must be a character." = is.character(suspects))
   stopifnot("`suspects` must be of type vector." = is.vector(suspects))
 
+  # Check file exists
   if (file.exists("suspects.rds")) {
     suspect_list <- readRDS("suspects.rds")
   } else {
@@ -41,10 +44,21 @@ suspects_remove <- function(suspects) {
     )
   }
 
+  # If file exists, run additional checks
   if (length(suspect_list$suspect) == 0) {
     stop("The suspect list is already empty!")
+  } else if (suspects %!in% suspect_list$suspect) {
+    stop(
+      cli::format_error(
+        c(
+          "`suspect` not found on suspect list",
+          "i" = "Check suspects with `suspects()`."
+        )
+      )
+    )
   }
 
+  # Remove suspects
   suspect_list <- suspect_list |>
     dplyr::filter(!(suspect %in% suspects))
 
