@@ -23,6 +23,7 @@ suspects_add <- function(suspects = NULL) {
   stopifnot("`suspects` must be of type vector." = is.vector(suspects))
   stopifnot("`suspect` is not a valid URL. Ensure it starts with 'http[s]:'" = url_check(suspects))
 
+  # Load suspect list
   suspect_list <- suspects_load(create = TRUE)
 
   suspect_list_new <- tibble::tibble(suspect = suspects)
@@ -44,19 +45,8 @@ suspects_remove <- function(suspects) {
   stopifnot("`suspects` must be a character." = is.character(suspects))
   stopifnot("`suspects` must be of type vector." = is.vector(suspects))
 
-  # Check file exists
-  if (file.exists("suspects.rds")) {
-    suspect_list <- readRDS("suspects.rds")
-  } else {
-    stop(
-      cli::format_error(
-        c(
-          "A list of suspects could not be found",
-          "i" = "Add suspects with `suspects_add()`."
-        )
-      )
-    )
-  }
+  # Load suspect list
+  suspect_list <- suspects_load(create = TRUE)
 
   # If file exists, run additional checks
   if (length(suspect_list$suspect) == 0) {
