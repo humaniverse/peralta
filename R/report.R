@@ -40,10 +40,18 @@ report_create_first <- function(evidence_new = NULL) {
     cli::cli_h1("Peralata report")
     cli::cli_text(
       c(
-        "This is the first time Peralta has investigated the suspects. ",
-        "He came across the following evidence: "
+        "This is the first time the suspects have been investigated. ",
+        "The following evidence was found: "
       )
     )
-    cli::cli_ul(paste0("{.url ", evidence_new, "}"))
+    cli::cli_h3("Summary:")
+    cli::cli_text(
+      cli::col_green("{cli::symbol$tick} "),
+      "{cli::no(length(evidence_new))} dataset{?s} added"
+    )
+    if (length(evidence_new) != 0) {
+      cli::cli_h3("datasets added")
+      cli::cli_ul(paste0("{.url ", evidence_new, "}"))
+    }
   })
 }
