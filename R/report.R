@@ -3,9 +3,9 @@ report_last <- function() {
 
 }
 
-report_generate <- function(evidence_added = NULL,
-                            evidence_removed = NULL,
-                            evidence_last = NULL) {
+report_create <- function(evidence_added = NULL,
+                          evidence_removed = NULL,
+                          evidence_last = NULL) {
   cli::cli({
     cli::cli_h1("Peralata report")
     cli::cli_h3("Summary:")

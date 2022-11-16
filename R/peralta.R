@@ -39,7 +39,8 @@ peralta <- function() {
       ) |>
       dplyr::pull(evidence)
 
-    report_generate(evidence_added, evidence_removed, evidence_last)
+    # R/report.R
+    report_create(evidence_added, evidence_removed, evidence_last)
 
     dplyr::bind_rows(evidence, evidence_new) |>
       saveRDS("evidence.rds")
