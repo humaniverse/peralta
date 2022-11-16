@@ -6,4 +6,9 @@
   within `peralta()` and can be called separately should be user want to view
   the last report.
 - Should `peralta()` even exist. Would it be better to rename/refactor
-  everything into `evidence()` functions to reduce names/complications?
+  everything into `evidence()` functions to reduce names/complications?-
+- Update README
+- Add roxygen comments
+- Build docs
+- Update DESCRIPTION
+- See GitHub issues for enhancements
