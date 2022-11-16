@@ -3,12 +3,7 @@ suspects_add <- function(suspects = NULL) {
   stopifnot("At least one suspect must be added to the list" = length(suspects) >= 1)
   stopifnot("`suspects` must be a character." = is.character(suspects))
   stopifnot("`suspects` must be of type vector." = is.vector(suspects))
-  stopifnot(
-    "`suspect` is not a valid URL. Ensure it starts with 'http[s]:'" = grepl(
-      pattern = "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+",
-      x = suspects
-    )
-  )
+  stopifnot("`suspect` is not a valid URL. Ensure it starts with 'http[s]:'" = url_check(suspects))
 
   if (file.exists("suspects.rds")) {
     suspect_list <- readRDS("suspects.rds")

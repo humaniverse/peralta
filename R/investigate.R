@@ -1,11 +1,6 @@
 investigate <- function(url) {
   stopifnot("`url` must be a string." = is.character(url))
-  stopifnot(
-    "`url` is not a valid URL. Ensure it starts with 'http[s]:'" = grepl(
-      pattern = "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+",
-      x = url
-    )
-  )
+  stopifnot("`suspect` is not a valid URL. Ensure it starts with 'http[s]:'" = url_check(url))
 
   response <- polite::bow(url) |>
     polite::scrape()
