@@ -22,4 +22,4 @@
 ### General
 - add (or replace printing functions) with functions to export the evidence and
   suspects dataframes into the user environment so they can be piped into other
-  purposes?s
+  purposes?
