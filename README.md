@@ -23,15 +23,13 @@ You can install the development version from
 devtools::install_github("humaniverse/peralta")
 ```
 
-## Contributing
+## Design philosophy
 
-To contribute to this project, please follow [GitHub
-Flow](https://guides.github.com/introduction/flow/) when submitting
-changes.
+Rather than create a new calss of objects (e.g., using R6/R7), peralta was
+designed to take advantage of the existing R `data.frame` class. This allows the
+user to interact with data created by this package using tools already in their
+arsenal.
 
-> Please note that this project is released with a Contributor Code of
-> Conduct. By participating in this project you agree to abide by its
-> terms.
 
 ## Alternatives
 
@@ -44,5 +42,3 @@ Python:
 
 Developed by [Mike Page](https://github.com/MikeJohnPage) at the British Red 
 Cross.
-
-See [LICESNE](/LICENSE)
