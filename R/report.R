@@ -46,6 +46,7 @@ report_create_first <- function(evidence_new = NULL) {
     )
     cli::cli_h3("Summary:")
     cli::cli_text(
+      "\u00a0\u00a0",
       cli::col_green("{cli::symbol$tick} "),
       "{cli::no(length(evidence_new))} dataset{?s} added"
     )
