@@ -53,40 +53,7 @@ peralta <- function() {
   }
 }
 
-# ---- Test run 1 ----
-# suspects <- c(
-#   "suspect_1",
-#   "suspect_2"
-# )
-# suspects_add(suspects)
-# suspects()
-
-# investigate_fake <- function(url, status) {
-#   tibble::tribble(
-#     ~url, ~status, ~dataset,
-#     "suspect_1", "base", "dataset_1",
-#     "suspect_1", "base", "dataset_2",
-#     "suspect_1", "update", "dataset_2",
-#     "suspect_1", "update", "dataset_3",
-#     "suspect_2", "base", "dataset_4",
-#     "suspect_2", "update", "dataset_4",
-#     "suspect_2", "update", "dataset_5",
-#   ) |>
-#   dplyr::filter(url == {{ url }}) |>
-#   dplyr::filter(status == {{ status }}) |>
-#   dplyr::select(evidence = dataset)
-# }
-
-# readRDS("suspects.rds") |>
-#   dplyr::mutate(timestamp = Sys.time()) |>
-#   dplyr::mutate(evidence = lapply(suspect, investigate_fake, status = "base")) |>
-#   tidyr::unnest(evidence) |>
-#   saveRDS("evidence.rds")
-
-# evidence()
-# peralta()
-
-# ---- Test run 2 ----
+# ---- Test run ----
 # suspects_add("https://www.england.nhs.uk/statistics/statistical-work-areas/hospital-discharge-data/")
 # suspects()
 # peralta()
