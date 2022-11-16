@@ -1,15 +1,9 @@
 ## To Do:
 
-### evidence.R
-- find a method to store the `evidence_*` outputs into the evidence
-  dataframe. That way, `report_last()` can recreate a report using the last
-  stored values so the latest report can be retrieved at any point. Can the
-  three required `evidence_*` args from `report_last()` be wrapped in a list and
-  then stored in the evidence dataframe in a nested data structure? The unnested
-  `evidence` column could be nested once again. This would also improve the 
-  `evidence()` printing function. 
-
-### General
-- add (or replace printing functions) with functions to export the evidence and
-  suspects dataframes into the user environment so they can be piped into other
-  purposes?
+- The peralta function needs refactoring. New evidence should *first* be stored
+  in the evidence dataframe and then the report should be generated. This means
+  a `report_last()` function can be written which generates a report both from
+  within `peralta()` and can be called separately should be user want to view
+  the last report.
+- Should `peralta()` even exist. Would it be better to rename/refactor
+  everything into `evidence()` functions to reduce names/complications?
