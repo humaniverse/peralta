@@ -24,10 +24,6 @@
   `evidence()` printing function. 
 
 ### General
-- refactor code to remove dependencies. Does this include polite? Would it not
-  be better to rely just on httr2/rvest (or just rvest), and manage rate
-  limiting / robots.txt manually?
-- Add optional file path for suspects and evidence
 - add (or replace printing functions) with functions to export the evidence and
   suspects dataframes into the user environment so they can be piped into other
-  purposes?
+  purposes?s
