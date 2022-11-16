@@ -67,6 +67,19 @@ suspects_remove <- function(suspects) {
 
 #' Print the suspect list
 suspects <- function(n = "Inf") {
-  suspect_list <- readRDS("suspects.rds")
+  # Check file exists
+  if (file.exists("suspects.rds")) {
+    suspect_list <- readRDS("suspects.rds") |>
+      tibble::as_tibble()
+  } else {
+    stop(
+      cli::format_error(
+        c(
+          "A list of suspects could not be found",
+          "i" = "Add suspects with `suspects_add()`."
+        )
+      )
+    )
+  }
   print(suspect_list, n = n)
 }
