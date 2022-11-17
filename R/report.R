@@ -7,7 +7,7 @@ report_create <- function(evidence_added = NULL,
                           evidence_removed = NULL,
                           timestamp_last_report = NULL) {
   cli::cli({
-    cli::cli_h1("Peralata report")
+    cli::cli_h1("Peralta report")
     cli::cli_h3("Summary:")
     cli::cli_text(
       "\u00a0\u00a0",
@@ -37,7 +37,7 @@ report_create <- function(evidence_added = NULL,
 
 report_create_first <- function(evidence = NULL) {
   cli::cli({
-    cli::cli_h1("Peralata report")
+    cli::cli_h1("Peralta report")
     cli::cli_text(
       c(
         "This is the first time the suspects have been investigated. ",
